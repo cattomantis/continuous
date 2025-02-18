@@ -1,0 +1,19 @@
+#### `.gitignore`
+```gitignore
+# Python general
+__pycache__/
+*.pyc
+*.pyo
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# OS files
+.DS_Store
+
+# jekyll site
+*_site/
+docs/.sass-cache/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
