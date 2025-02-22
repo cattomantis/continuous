@@ -9,6 +9,9 @@ __pycache__/
 *.log
 docker-compose.override.yml
 
+# Lock files
+*.lock
+
 # OS files
 .DS_Store
 

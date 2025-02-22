@@ -3,16 +3,16 @@ title: Cattomantis Documentation
 description: Meow
 
 # Remote Setting
-baseurl: "/continuous"
-url: "https://cattomantis.github.io"
+baseurl: ""
+url: ""
 
 # Theme
-# theme: "just-the-docs"
-remote_theme: just-the-docs/just-the-docs
+theme: "just-the-docs"
+# remote_theme: pmarsceill/just-the-docs@v0.2.6
 
 # Theme settings
 # Color scheme currently only supports "dark" or nil (default)
-color_scheme: dark
+color_scheme: nil
 
 # Enable or disable the site search
 # Use this command to update index: bundle exec just-the-docs rake search:init
