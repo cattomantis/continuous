@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-  # pull_request:
-  #   type: [opened, reopened, synchronize]
 
 jobs:
   jekyll_build:
@@ -13,15 +11,23 @@ jobs:
       BUNDLE_GEMFILE: ${{ github.workspace }}/docs/Gemfile
     steps:
     - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@v1
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
         bundler-cache: true
-    - name: Update RubyGems
-      run: gem update --system 3.3.3
-    - name: Bundle Install
+    - name: Update system and install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libcurl4-openssl-dev
+    - name: Update RubyGems and Bundler
+      run: |
+        gem update --system
+        gem install bundler
+    - name: Install dependencies
       run: |
         cd docs
+        bundle config set --local path 'vendor/bundle'
         bundle install
     - name: Build Jekyll site
       run: bundle exec jekyll build -s docs -d _site --config docs/_config_local.yml
